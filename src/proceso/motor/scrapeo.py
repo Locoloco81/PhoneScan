@@ -12,7 +12,9 @@ def scra(p, n):
     url = "http://apilayer.net/api/validate?access_key="+kato_key+"&number="+number+""
     r = requests.get(url)
     j = json.loads(r.text)
-    if j['valid'] == False:
+    if 'valid' in j and j['valid'] == False:
+    # manejar el error
+
         print(Fore.RED + 'El numero que introduciste no es real :(')
     else:
         va = "Verdadero"
